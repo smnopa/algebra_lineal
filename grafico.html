@@ -19,9 +19,19 @@
             max-width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 20px;
+            padding: 20px 30px; /* Más padding para que coincida con simplex */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra para profundidad */
         }
 
+        /* Encabezados H2 y sección */
+        h2 { 
+            color: #003366; /* Azul oscuro para los títulos principales */
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
         h3, label.section-label {
             font-weight: 700;
             font-size: 1.1rem;
@@ -30,6 +40,7 @@
             color: #000;
         }
 
+        /* Estilo del Dropdown Maximizar/Minimizar */
         select.main-select {
             width: 100%;
             padding: 10px;
@@ -39,8 +50,10 @@
             font-size: 1rem;
             margin-bottom: 25px;
             cursor: pointer;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Sombra interna para inputs */
         }
 
+        /* Filas de ecuaciones (inputs alineados) */
         .equation-row {
             display: flex;
             align-items: center;
@@ -49,38 +62,50 @@
             margin-bottom: 10px;
         }
 
+        /* Estilo de los Inputs numéricos */
         input[type="number"] {
             width: 80px;
             padding: 8px;
             text-align: center;
-            border: 1px solid #e0e0e0;
-            border-radius: 2px;
+            border: 1px solid #ccc; /* Borde más general */
+            border-radius: 4px; /* Bordes redondeados */
             font-size: 1rem;
             background-color: #fcfcfc;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
 
+        /* Texto X1, X2 */
         .var-label {
             font-weight: bold;
             font-size: 1.1rem;
         }
 
+        /* Select de desigualdad (<=, >=) */
         select.operator-select {
-            padding: 5px;
-            border: 1px solid #ddd;
+            padding: 8px 5px; /* Más padding vertical */
+            border: 1px solid #ccc;
+            border-radius: 4px;
             background: white;
             font-size: 1rem;
             cursor: pointer;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
 
+        /* Contenedor de cada restricción */
         .restriction-block {
             margin-bottom: 20px;
             text-align: left;
+            background: #f8f9fa; /* Fondo claro para los bloques de restricción */
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
         }
         .restriction-content {
             display: flex;
             justify-content: center;
         }
 
+        /* Botones Circulares Verdes (+ y -) */
         .controls {
             display: flex;
             justify-content: center;
@@ -113,8 +138,9 @@
         
         .circle-btn:active { transform: scale(0.95); }
 
+        /* Botón de calcular */
         .calc-btn {
-            background-color: #007bff;
+            background-color: #007bff; /* Azul primario */
             color: white;
             padding: 12px 30px;
             font-size: 1.1rem;
@@ -123,18 +149,23 @@
             cursor: pointer;
             display: block;
             margin: 0 auto 20px auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
         }
         .calc-btn:hover { background-color: #0056b3; }
         
+        /* Botón volver */
         .btn-back {
             text-decoration: none;
-            color: #666;
-            font-size: 0.9rem;
+            color: #007bff; /* Azul */
+            font-size: 0.95rem;
             display: inline-block;
             margin-bottom: 20px;
+            font-weight: 500;
         }
+        .btn-back:hover { text-decoration: underline; }
 
-        /* RESULTADOS */
+        /* Resultados */
         #resultado-grafico {
             margin-top: 30px;
             border-top: 2px solid #eee;
@@ -143,7 +174,7 @@
         }
 
         #plot-title {
-            color: #00008B; /* Azul oscuro como en la imagen */
+            color: #003366; /* Azul oscuro */
             font-size: 1.8rem;
             font-weight: bold;
             text-align: center;
@@ -153,20 +184,23 @@
         /* Tabla de resultados */
         .results-table-container {
             margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Sombra para la tabla */
+            border-radius: 8px;
+            overflow: hidden; /* Asegura que el redondeado se vea bien */
         }
         .results-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 0; /* No margin aquí, lo maneja el contenedor */
         }
         .results-table th, .results-table td {
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0; /* Bordes más suaves */
             padding: 10px;
             text-align: center;
             font-size: 0.95rem;
         }
         .results-table th {
-            background-color: #2196F3; /* Azul más oscuro para encabezados */
+            background-color: #2196F3;
             color: white;
             font-weight: bold;
         }
@@ -174,25 +208,26 @@
             background-color: #f9f9f9;
         }
         .results-table td.optimal-row {
-            background-color: #FFCDD2; /* Rosa claro para la fila óptima */
+            background-color: #FFCDD2;
         }
         .results-table td.optimal-value {
             font-weight: bold;
-            color: #D32F2F; /* Rojo oscuro */
+            color: #D32F2F;
         }
 
         /* Recuadro de solución óptima */
         .optimal-summary {
-            background-color: #E8F5E9; /* Verde claro */
-            border: 1px solid #A5D6A7;
+            background-color: #e8f5e9;
+            border: 1px solid #a5d6a7;
             border-radius: 8px;
             padding: 15px 20px;
             text-align: center;
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #388E3C; /* Verde oscuro para el texto */
+            color: #388E3C;
             font-weight: bold;
             margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.1); /* Sombra azul ligera */
         }
     </style>
 </head>
@@ -200,21 +235,22 @@
 
 <div class="container">
     <a href="index.html" class="btn-back">← Volver al menú</a>
-
-    <label class="section-label">Objetivo:</label>
+    <h2>Método Gráfico</h2> <label class="section-label">Objetivo:</label>
     <select id="g-objetivo" class="main-select">
         <option value="max">Maximizar</option>
         <option value="min">Minimizar</option>
     </select>
 
     <label class="section-label">Función Objetivo:</label>
-    <div class="equation-row" style="margin-bottom: 30px;">
-        <input type="number" id="g-z1" value="3"> 
-        <span class="var-label">X<sub>1</sub> +</span>
-        <input type="number" id="g-z2" value="2"> 
-        <span class="var-label">X<sub>2</sub></span>
+    <div class="restriction-block" style="margin-bottom: 30px;"> <div class="equation-row">
+            <input type="number" id="g-z1" value="3"> 
+            <span class="var-label">X<sub>1</sub> +</span>
+            <input type="number" id="g-z2" value="2"> 
+            <span class="var-label">X<sub>2</sub></span>
+        </div>
     </div>
 
+    <label class="section-label">Restricciones:</label>
     <div id="g-restricciones">
         </div>
 
@@ -255,7 +291,7 @@
     function crearHTMLRestriccion(id) {
         return `
             <div class="restriction-block" id="res-block-${id}">
-                <label class="section-label">Restricción ${id}:</label>
+                <label class="section-label" style="margin-top:0;">Restricción ${id}:</label>
                 <div class="restriction-content equation-row">
                     <input type="number" class="g-a" value="1"> 
                     <span class="var-label">X<sub>1</sub> + </span>
@@ -275,7 +311,6 @@
     }
 
     window.onload = function() {
-        // Cargar restricciones por defecto como en la imagen de ejemplo
         agregarRestriccion(); // R1
         document.querySelector(`#res-block-${contadorRestricciones} .g-a`).value = 2;
         document.querySelector(`#res-block-${contadorRestricciones} .g-b`).value = 1;
@@ -299,7 +334,7 @@
     }
 
     function eliminarRestriccion() {
-        if (contadorRestricciones > 1) { // Siempre debe haber al menos 1
+        if (contadorRestricciones > 1) {
             const resBlock = document.getElementById(`res-block-${contadorRestricciones}`);
             if (resBlock) {
                 resBlock.remove();
@@ -330,61 +365,51 @@
             });
         }
         
-        // Agregar No Negatividad (X1, X2 >= 0)
         constraints.push({a: 1, b: 0, c: 0, type: 'non-neg', op: '>='});
         constraints.push({a: 0, b: 1, c: 0, type: 'non-neg', op: '>='});
 
         let points = [];
-        // Intersecciones
         for (let i = 0; i < constraints.length; i++) {
             for (let j = i + 1; j < constraints.length; j++) {
                 const r1 = constraints[i];
                 const r2 = constraints[j];
                 const det = r1.a * r2.b - r2.a * r1.b;
-                if (Math.abs(det) > 1e-9) { // Evitar division por cero o casi cero
+                if (Math.abs(det) > 1e-9) { 
                     const x = (r1.c * r2.b - r2.c * r1.b) / det;
                     const y = (r1.a * r2.c - r2.a * r1.c) / det;
                     points.push({x, y});
                 }
             }
         }
-        points.push({x:0, y:0}); // El origen es siempre un posible vértice
+        points.push({x:0, y:0});
 
-        // Filtrar Factibles
         let feasiblePoints = points.filter(p => {
-            if(p.x < -1e-9 || p.y < -1e-9) return false; // No negatividad estricta
+            if(p.x < -1e-9 || p.y < -1e-9) return false;
             for(let r of constraints) {
-                // Para el propósito de verificación de factibilidad, las restricciones de no negatividad ya se incluyen.
-                // No necesitamos tratarlas de forma especial aquí.
                 const val = r.a * p.x + r.b * p.y;
-                if (r.op === '<=' && val > r.c + 1e-9) return false; // val > c + epsilon
-                if (r.op === '>=' && val < r.c - 1e-9) return false; // val < c - epsilon
-                if (r.op === '=' && Math.abs(val - r.c) > 1e-9) return false; // abs(val - c) > epsilon
+                if (r.op === '<=' && val > r.c + 1e-9) return false;
+                if (r.op === '>=' && val < r.c - 1e-9) return false;
+                if (r.op === '=' && Math.abs(val - r.c) > 1e-9) return false;
             }
             return true;
         });
 
-        // Eliminar duplicados muy cercanos
         feasiblePoints = feasiblePoints.filter((p, index, self) =>
             index === self.findIndex((t) => (Math.abs(t.x - p.x) < 0.001 && Math.abs(t.y - p.y) < 0.001))
         );
 
-        // Si el número de restricciones de entrada era alto, podemos tener muchos puntos.
-        // Solo conservaremos los más relevantes para no saturar.
-        // Esto es una simplificación, en problemas reales se usan algoritmos de convex hull.
         if (feasiblePoints.length === 0) { 
             alert("No se encontró una región factible."); 
             document.getElementById('resultado-grafico').style.display = 'none';
             return; 
         }
 
-        // Evaluar Z
         let bestZ = (objetivo === 'max') ? -Infinity : Infinity;
         let optimalPoint = null;
         
         feasiblePoints.forEach(p => {
             let z = c1 * p.x + c2 * p.y;
-            p.z = z; // Almacenar Z en el punto para la tabla
+            p.z = z;
             if (objetivo === 'max') {
                 if(z > bestZ) { bestZ = z; optimalPoint = p; }
             } else {
@@ -392,55 +417,51 @@
             }
         });
         
-        // --- PREPARAR GRÁFICA ---
-        const maxXVal = Math.max(...feasiblePoints.map(p=>p.x), 1); // Asegurarse que el rango no sea 0
+        const maxXVal = Math.max(...feasiblePoints.map(p=>p.x), 1);
         const maxYVal = Math.max(...feasiblePoints.map(p=>p.y), 1);
-        const maxAxis = Math.max(maxXVal, maxYVal) * 1.2; // 20% más para espacio
+        const maxAxis = Math.max(maxXVal, maxYVal) * 1.2;
 
         const layout = {
-            title: '', // El título lo ponemos con H1 fuera del Plotly
+            title: '',
             xaxis: {
                 range: [0, maxAxis], 
                 title: 'X₁', 
                 gridcolor: '#e0e0e0', 
                 zerolinecolor: '#666',
-                rangemode: 'tozero', // Empieza en 0
-                dtick: 2 // Intervalos de 2 unidades como en la imagen
+                rangemode: 'tozero',
+                dtick: 2
             },
             yaxis: {
                 range: [0, maxAxis], 
                 title: 'X₂', 
                 gridcolor: '#e0e0e0', 
                 zerolinecolor: '#666',
-                rangemode: 'tozero', // Empieza en 0
+                rangemode: 'tozero',
                 dtick: 2
             },
             showlegend: true,
             hovermode: 'closest',
-            margin: { l: 50, r: 20, b: 50, t: 20 }, // Ajustar margenes
-            shapes: [], // Para la región factible
-            annotations: [] // Para las etiquetas de los puntos
+            margin: { l: 50, r: 20, b: 50, t: 20 },
+            shapes: [],
+            annotations: []
         };
 
         let data = [];
-        let polygonPoints = []; // Para el sombreado de la región factible
+        let polygonPoints = [];
 
-        // Dibujar Líneas de Restricciones
         constraints.forEach((r, idx) => {
             if(r.type === 'non-neg') return;
             
             let x_vals = [], y_vals = [];
-            const displayMax = maxAxis * 1.5; // Un valor grande para asegurar que las líneas crucen el gráfico
+            const displayMax = maxAxis * 1.5;
 
-            if(Math.abs(r.b) < 1e-9) { // Linea vertical (X = C/A)
+            if(Math.abs(r.b) < 1e-9) { 
                 x_vals = [r.c/r.a, r.c/r.a]; y_vals = [0, displayMax]; 
-            } else if (Math.abs(r.a) < 1e-9) { // Linea horizontal (Y = C/B)
+            } else if (Math.abs(r.a) < 1e-9) { 
                 x_vals = [0, displayMax]; y_vals = [r.c/r.b, r.c/r.b];
-            } else { // Línea normal (Ax + By = C)
+            } else {
                 x_vals = [0, r.c/r.a];
                 y_vals = [r.c/r.b, 0];
-                // Si los puntos de corte con los ejes son negativos o muy pequeños, 
-                // ajustamos para que la línea se vea dentro del rango visible.
                 if (x_vals[1] < 0 || y_vals[0] < 0) {
                      x_vals = [0, displayMax];
                      y_vals = [r.c/r.b, (r.c - r.a * displayMax)/r.b];
@@ -451,14 +472,10 @@
                 x: x_vals, y: y_vals,
                 mode: 'lines',
                 name: `Restricción ${idx+1}`,
-                line: { color: 'rgb(50, 100, 180)', width: 2 } // Color azul como en la imagen
+                line: { color: 'rgb(50, 100, 180)', width: 2 }
             });
         });
 
-        // Ordenar puntos factibles para el polígono de la región factible
-        // Esto es crucial para que Plotly rellene correctamente el área
-        // Se necesita un algoritmo de convex hull, pero para 2D simple:
-        // Ordenar por ángulo respecto al punto central o por x,y
         const centerX = feasiblePoints.reduce((sum, p) => sum + p.x, 0) / feasiblePoints.length;
         const centerY = feasiblePoints.reduce((sum, p) => sum + p.y, 0) / feasiblePoints.length;
 
@@ -470,35 +487,25 @@
 
         polygonPoints = feasiblePoints.map(p => ({ x: p.x, y: p.y }));
 
-        // Sombreado de la Región Factible (Shape en Layout)
         if (polygonPoints.length > 0) {
             layout.shapes.push({
                 type: 'path',
                 path: 'M ' + polygonPoints.map(p => `${p.x} ${p.y}`).join(' L ') + ' Z',
-                fillcolor: 'rgba(173, 216, 230, 0.5)', // Azul claro semi-transparente
+                fillcolor: 'rgba(173, 216, 230, 0.5)',
                 line: { width: 0 }
             });
         }
 
-        // Línea de Función Objetivo (Z) y etiquetas de vértices
-        let vertexCount = 0;
-        let sortedFeasiblePoints = [...feasiblePoints].sort((a,b) => {
-            if (a.x !== b.x) return a.x - b.x;
-            return a.y - b.y;
-        });
-
-        // Puntos de los vértices y etiquetas
         data.push({
-            x: sortedFeasiblePoints.map(p => p.x),
-            y: sortedFeasiblePoints.map(p => p.y),
+            x: feasiblePoints.map(p => p.x),
+            y: feasiblePoints.map(p => p.y),
             mode: 'markers',
             type: 'scatter',
             name: 'Vértices',
-            marker: { color: '#000', size: 8, symbol: 'circle' } // Círculos negros
+            marker: { color: '#000', size: 8, symbol: 'circle' }
         });
 
-        // Añadir etiquetas para cada vértice
-        sortedFeasiblePoints.forEach((p, index) => {
+        feasiblePoints.forEach((p, index) => {
             if (index < verticesLabels.length) {
                 layout.annotations.push({
                     x: p.x,
@@ -508,7 +515,7 @@
                     text: `${verticesLabels[index]} = (${p.x.toFixed(2)}, ${p.y.toFixed(2)})`,
                     showarrow: true,
                     arrowhead: 0,
-                    ax: 20, // Desplazamiento de la etiqueta
+                    ax: 20,
                     ay: -30,
                     font: {
                         size: 12,
@@ -518,12 +525,10 @@
             }
         });
 
-        // Línea de la Función Objetivo (Curva de nivel)
-        // Dibujamos una línea con el valor de Z óptimo
         if (optimalPoint) {
             const zLineValue = optimalPoint.z;
             const x_fo = [0, maxAxis];
-            const y_fo = [(zLineValue / c2), (zLineValue - c1 * maxAxis) / c2]; // y = (Z - c1x)/c2
+            const y_fo = [(zLineValue / c2), (zLineValue - c1 * maxAxis) / c2];
 
             data.push({
                 x: x_fo, y: y_fo,
@@ -532,13 +537,12 @@
                 line: { color: 'red', width: 2, dash: 'solid' }
             });
             
-            // Etiqueta de la función objetivo en la gráfica
             layout.annotations.push({
-                x: x_fo[1], // Un punto en la linea
+                x: x_fo[1],
                 y: y_fo[1],
                 xref: 'x',
                 yref: 'y',
-                text: `Z=${c1}X₁ + ${c2}X₂ = ${zLineValue.toFixed(0)}`, // Redondeado para la etiqueta
+                text: `Z=${c1}X₁ + ${c2}X₂ = ${zLineValue.toFixed(0)}`,
                 showarrow: false,
                 xanchor: 'left',
                 yanchor: 'bottom',
@@ -550,21 +554,18 @@
             });
         }
 
-        // Renderizar la gráfica
         Plotly.newPlot('plot-area', data, layout);
 
-        // --- PREPARAR TABLA DE RESULTADOS ---
         const tableBody = document.querySelector('#vertices-table tbody');
-        tableBody.innerHTML = ''; // Limpiar tabla anterior
+        tableBody.innerHTML = '';
 
-        // Ordenar los puntos para la tabla de A a E
         let currentVertexLabelIndex = 0;
         const finalFeasiblePoints = feasiblePoints.map(p => ({
             label: verticesLabels[currentVertexLabelIndex++],
             x: p.x,
             y: p.y,
             z: p.z
-        })).sort((a,b) => a.label.localeCompare(b.label)); // Ordenar por la letra de la etiqueta
+        })).sort((a,b) => a.label.localeCompare(b.label));
 
         finalFeasiblePoints.forEach(p => {
             const isOptimal = (Math.abs(p.x - optimalPoint.x) < 0.001 && Math.abs(p.y - optimalPoint.y) < 0.001);
@@ -579,7 +580,6 @@
             newRow.insertCell().innerHTML = `${c1}(${p.x.toFixed(2)}) + ${c2}(${p.y.toFixed(2)}) = <span class="${cellClass}">${p.z.toFixed(2)}</span>`;
         });
 
-        // --- RESUMEN DE LA SOLUCIÓN ÓPTIMA ---
         const optimalSummaryDiv = document.getElementById('optimal-summary');
         const tipoTexto = objetivo === 'max' ? 'Máximo' : 'Mínimo';
         

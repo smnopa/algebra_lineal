@@ -16,13 +16,37 @@
             max-width: 900px;
             margin: 0 auto;
             background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         /* --- Estilos Generales --- */
-        h2 { color: #003366; margin-bottom: 10px; }
-        .btn-back { text-decoration: none; color: #666; font-size: 0.9rem; display: inline-block; margin-bottom: 20px; }
+        h2 { 
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        h3 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+            color: #000;
+        }
+        .btn-back { 
+            text-decoration: none; 
+            color: #007bff;
+            font-size: 0.95rem; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-weight: 500;
+        }
+        .btn-back:hover { text-decoration: underline; }
         
-        /* --- Inputs --- */
+        /* --- Inputs y Configuración --- */
         .input-section {
             background: #f8f9fa;
             padding: 20px;
@@ -38,9 +62,12 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             margin: 0 2px;
+            background-color: #fcfcfc;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
         .var-label { font-weight: bold; margin-right: 5px; }
         
+        /* Botones */
         .btn-generate {
             background-color: #007bff;
             color: white;
@@ -50,6 +77,8 @@
             font-size: 1rem;
             cursor: pointer;
             margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
         }
         .btn-generate:hover { background-color: #0056b3; }
 
@@ -62,21 +91,36 @@
             font-size: 1.1rem;
             cursor: pointer;
             margin-top: 20px;
-            display: none; /* Oculto al inicio */
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
         }
         .btn-calc:hover { background-color: #218838; }
 
-        /* --- ESTILOS DE LA TABLA SIMPLEX (Réplica Exacta) --- */
+        /* Estilo para los bloques generados dinámicamente (Función y restricciones) */
+        #form-container h3 { margin-top: 20px; }
+        .generated-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* --- ESTILOS DE LA TABLA SIMPLEX --- */
         .iteration-container {
             margin-bottom: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
             animation: fadeIn 0.5s ease-in;
         }
         
         .iter-title {
             font-size: 1.2rem;
-            color: #000080; /* Azul oscuro */
+            color: #003366;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .simplex-table {
@@ -86,32 +130,22 @@
             border-radius: 8px;
             overflow: hidden;
             font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
         .simplex-table th, .simplex-table td {
-            padding: 10px;
+            padding: 12px 8px;
             text-align: center;
             border: 1px solid #e0e0e0;
         }
 
         /* Encabezados */
         .header-cj { background-color: #ffffff; color: #666; font-size: 0.85rem; border-bottom: none !important;}
-        .header-main { background-color: #f8f9fa; font-weight: bold; color: #444; }
+        .header-main { background-color: #2196F3; color: white; font-weight: bold; }
         
-        /* Etiqueta "Tabla X" azul */
-        .table-tag {
-            background-color: #29b6f6; /* Azul claro tipo cyan */
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            display: inline-block;
-            margin-right: 5px;
-        }
-
         /* Elemento Pivote (Circulo Azul) */
         .pivot-element {
-            background-color: #1565C0; /* Azul fuerte */
+            background-color: #1565C0;
             color: white;
             border-radius: 50%;
             width: 35px;
@@ -128,18 +162,19 @@
             background-color: #fafafa;
             font-weight: bold;
             color: #333;
+            border-top: 2px solid #ccc;
         }
         
         /* Celda del resultado Z final en naranja */
         .final-z-cell {
-            background-color: #e65100 !important; /* Naranja fuerte */
+            background-color: #e65100 !important;
             color: white !important;
             font-weight: bold;
         }
 
         /* Cuadro Amarillo de Explicación */
         .explanation-box {
-            background-color: #fff9c4; /* Amarillo claro */
+            background-color: #fff9c4;
             border: 1px solid #fff59d;
             color: #5d4037;
             padding: 15px;
@@ -148,20 +183,22 @@
             margin-top: 15px;
             margin-bottom: 20px;
             font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         /* Cuadro Verde de Solución Final */
         .final-solution-box {
-            background-color: #e8f5e9; /* Verde muy claro */
+            background-color: #e8f5e9;
             border: 1px solid #a5d6a7;
-            color: #2e7d32; /* Verde oscuro */
+            color: #2e7d32;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             margin-top: 30px;
             font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .final-solution-box h3 { margin: 0 0 10px 0; font-size: 1.4rem;}
+        .final-solution-box h3 { margin: 0 0 10px 0; font-size: 1.4rem; color: #1b5e20;}
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -176,7 +213,7 @@
     <h2>Método Simplex (Maximizar)</h2>
 
     <div class="input-section">
-        <p>Configura tu problema:</p>
+        <p style="margin-top:0; font-weight:500; color:#555;">Configuración del problema</p>
         <label>Variables:</label> 
         <input type="number" id="num-vars" value="2" min="2" max="5">
         
@@ -186,7 +223,7 @@
         <button class="btn-generate" onclick="generarFormulario()">Generar Matriz</button>
     </div>
 
-    <div id="form-container" style="text-align: center;"></div>
+    <div id="form-container"></div>
 
     <div style="text-align:center;">
         <button class="btn-calc" id="btn-calculate" onclick="resolverSimplex()">Calcular Paso a Paso</button>
@@ -202,15 +239,20 @@
         const nRests = parseInt(document.getElementById('num-rests').value);
         const container = document.getElementById('form-container');
         
-        let html = '<h3>Función Objetivo (Max Z)</h3>';
-        html += 'Z = ';
+        let html = '';
+        
+        // Función Objetivo
+        html += `<h3>Función Objetivo (Max Z)</h3>`;
+        html += `<div class="generated-block">Z = `;
         for (let j = 0; j < nVars; j++) {
             html += `<input type="number" id="cj-${j}" value="${j===0?3:2}"> <span class="var-label">X<sub>${j+1}</sub></span> ${j < nVars-1 ? '+' : ''} `;
         }
+        html += `</div>`;
 
+        // Restricciones
         html += '<h3>Restricciones</h3>';
         for (let i = 0; i < nRests; i++) {
-            html += `<div style="margin-bottom:10px;">Restricción ${i+1}: `;
+            html += `<div class="generated-block">Restricción ${i+1}: `;
             for (let j = 0; j < nVars; j++) {
                 html += `<input type="number" id="a-${i}-${j}" value="${Math.floor(Math.random()*3)+1}"> X<sub>${j+1}</sub> + `;
             }
@@ -219,25 +261,20 @@
 
         container.innerHTML = html;
         document.getElementById('btn-calculate').style.display = 'inline-block';
-        document.getElementById('results-area').innerHTML = ''; // Limpiar resultados anteriores
+        document.getElementById('results-area').innerHTML = ''; 
     }
 
-    // Inicializar con un ejemplo por defecto
     window.onload = function() {
         generarFormulario();
-        // Poner los valores del ejemplo del usuario (Max Z = 3x1 + 2x2)
-        // Restricciones: 2x1 + x2 <= 18, etc...
+        // Pre-llenar ejemplo
         setTimeout(() => {
-           // Intentar pre-llenar si existen los inputs
            if(document.getElementById('cj-0')) {
                document.getElementById('cj-0').value = 3;
                document.getElementById('cj-1').value = 2;
-               
                // Res 1
                document.getElementById('a-0-0').value = 2;
                document.getElementById('a-0-1').value = 1;
                document.getElementById('b-0').value = 18;
-               
                // Res 2
                if(document.getElementById('a-1-0')) {
                    document.getElementById('a-1-0').value = 2;
@@ -248,92 +285,64 @@
         }, 100);
     };
 
-    // Lógica Principal del Simplex
     function resolverSimplex() {
         const nVars = parseInt(document.getElementById('num-vars').value);
         const nRests = parseInt(document.getElementById('num-rests').value);
         const resultsArea = document.getElementById('results-area');
-        resultsArea.innerHTML = ""; // Limpiar
+        resultsArea.innerHTML = ""; 
 
         // 1. Recopilar Datos
-        let Cj = []; // Coeficientes Objetivo
+        let Cj = []; 
         for(let j=0; j<nVars; j++) Cj.push(parseFloat(document.getElementById(`cj-${j}`).value));
-        // Agregar coeficientes de holgura (0)
         for(let i=0; i<nRests; i++) Cj.push(0);
 
-        let Matrix = []; // Matriz [Restricciones][Vars + Holguras + Solución]
-        let BasicVars = []; // Índices de las variables básicas actuales (Holguras al inicio)
-        let Cb = []; // Coeficientes de las variables básicas
+        let Matrix = []; 
+        let BasicVars = []; 
+        let Cb = []; 
 
         for(let i=0; i<nRests; i++) {
             let row = [];
-            // Variables reales
-            for(let j=0; j<nVars; j++) {
-                row.push(parseFloat(document.getElementById(`a-${i}-${j}`).value));
-            }
-            // Variables de holgura (Identidad)
-            for(let k=0; k<nRests; k++) {
-                row.push(i === k ? 1.0 : 0.0);
-            }
-            // Solución (RHS)
+            for(let j=0; j<nVars; j++) row.push(parseFloat(document.getElementById(`a-${i}-${j}`).value));
+            for(let k=0; k<nRests; k++) row.push(i === k ? 1.0 : 0.0);
             row.push(parseFloat(document.getElementById(`b-${i}`).value));
             
             Matrix.push(row);
-            BasicVars.push(nVars + i); // Las holguras son S1, S2... indices nVars, nVars+1...
-            Cb.push(0); // Coeficiente de holgura en Z es 0
+            BasicVars.push(nVars + i); 
+            Cb.push(0); 
         }
 
-        // Nombres de variables para mostrar
         let VarNames = [];
         for(let j=0; j<nVars; j++) VarNames.push(`X<sub>${j+1}</sub>`);
         for(let k=0; k<nRests; k++) VarNames.push(`S<sub>${k+1}</sub>`);
 
-        // --- BUCLE DE ITERACIONES ---
+        // --- BUCLE ---
         let iteration = 1;
         let maxIterations = 10;
         
         while(iteration <= maxIterations) {
             
-            // 1. Calcular Zj y Zj - Cj
-            let Z_row = []; // Zj - Cj
-            let Z_val = 0;  // Valor actual de la función objetivo
+            let Z_row = []; 
+            let Z_val = 0;  
 
-            // Para cada columna (incluyendo holguras)
             for(let j=0; j < (nVars + nRests); j++) {
                 let zj = 0;
-                for(let i=0; i<nRests; i++) {
-                    zj += Cb[i] * Matrix[i][j];
-                }
+                for(let i=0; i<nRests; i++) zj += Cb[i] * Matrix[i][j];
                 Z_row.push(zj - Cj[j]);
             }
             
-            // Calcular valor Z actual
-            for(let i=0; i<nRests; i++) {
-                Z_val += Cb[i] * Matrix[i][Matrix[0].length - 1];
-            }
+            for(let i=0; i<nRests; i++) Z_val += Cb[i] * Matrix[i][Matrix[0].length - 1];
 
-            // 2. Verificar Condición de Parada (Si todos Zj - Cj >= 0 en Maximizacion)
-            // *Nota: En muchos libros se usa Cj - Zj. Aquí usaremos Zj - Cj. Si buscamos Max, entran los más negativos.*
-            // Verifiquemos tu imagen: Z row tiene negativos (-3, -2). Entra el más negativo (-3).
-            // Entonces la lógica es: Buscar el valor más negativo en Z_row.
-            
             let minVal = 0;
             let pivotCol = -1;
             
             for(let j=0; j < Z_row.length; j++) {
-                // Truco js para evitar -0
                 let val = Z_row[j];
                 if (Math.abs(val) < 1e-10) val = 0; 
-                
-                if(val < minVal) {
-                    minVal = val;
-                    pivotCol = j;
-                }
+                if(val < minVal) { minVal = val; pivotCol = j; }
             }
 
-            let optimal = (pivotCol === -1); // No hay negativos, terminamos.
+            let optimal = (pivotCol === -1); 
 
-            // 3. Encontrar Fila Pivote (Test del Cociente Mínimo)
             let pivotRow = -1;
             let minRatio = Infinity;
 
@@ -342,30 +351,21 @@
                     let rhs = Matrix[i][Matrix[0].length - 1];
                     let element = Matrix[i][pivotCol];
                     
-                    if(element > 1e-10) { // Solo dividir por positivos
+                    if(element > 1e-10) { 
                         let ratio = rhs / element;
-                        if(ratio < minRatio) {
-                            minRatio = ratio;
-                            pivotRow = i;
-                        }
+                        if(ratio < minRatio) { minRatio = ratio; pivotRow = i; }
                     }
                 }
-                if(pivotRow === -1) {
-                    alert("El problema no está acotado (Solución infinita).");
-                    return;
-                }
+                if(pivotRow === -1) { alert("El problema no está acotado."); return; }
             }
 
-            // 4. RENDERIZAR TABLA (Antes de operar)
             renderIteration(iteration, Cj, VarNames, Cb, BasicVars, Matrix, Z_row, Z_val, pivotRow, pivotCol);
 
-            // Si es óptimo, salimos y mostramos resumen
             if(optimal) {
                 renderFinalSolution(Z_val, BasicVars, Matrix, VarNames);
                 break;
             }
 
-            // 5. Explicación del paso (Caja Amarilla)
             let enteringVar = VarNames[pivotCol];
             let leavingVar = VarNames[BasicVars[pivotRow]];
             let pivotElement = Matrix[pivotRow][pivotCol];
@@ -378,71 +378,41 @@
             `;
             resultsArea.insertAdjacentHTML('beforeend', explanationHtml);
 
-
-            // 6. OPERACIONES GAUSS-JORDAN
-            
-            // A. Actualizar Base y Cb
             BasicVars[pivotRow] = pivotCol;
             Cb[pivotRow] = Cj[pivotCol];
 
-            // B. Dividir fila pivote por el elemento pivote (hacerlo 1)
             let pivotVal = Matrix[pivotRow][pivotCol];
-            for(let j=0; j < Matrix[0].length; j++) {
-                Matrix[pivotRow][j] = Matrix[pivotRow][j] / pivotVal;
-            }
+            for(let j=0; j < Matrix[0].length; j++) Matrix[pivotRow][j] = Matrix[pivotRow][j] / pivotVal;
 
-            // C. Hacer ceros en las otras filas
             for(let i=0; i<nRests; i++) {
                 if(i !== pivotRow) {
                     let factor = Matrix[i][pivotCol];
-                    for(let j=0; j < Matrix[0].length; j++) {
-                        Matrix[i][j] = Matrix[i][j] - (factor * Matrix[pivotRow][j]);
-                    }
+                    for(let j=0; j < Matrix[0].length; j++) Matrix[i][j] = Matrix[i][j] - (factor * Matrix[pivotRow][j]);
                 }
             }
-
             iteration++;
         }
     }
 
-    // Función para dibujar UNA tabla
     function renderIteration(iterIndex, Cj, VarNames, Cb, BasicVars, Matrix, Z_row, Z_val, pivotRow, pivotCol) {
         let html = `<div class="iteration-container">`;
-        
-        // Título: Matriz Inicial o Iteración X
         let title = iterIndex === 1 ? "Matriz Inicial" : `Iteración ${iterIndex - 1}`;
         html += `<div class="iter-title">${title}</div>`;
 
         html += `<table class="simplex-table">`;
-        
-        // Fila 1: Cj
-        html += `<thead><tr class="header-cj"><th>C<sub>j</sub></th><th></th>`; // Cj y Base vacía
+        html += `<thead><tr class="header-cj"><th>C<sub>j</sub></th><th></th>`; 
         for(let val of Cj) html += `<th>${val}</th>`;
-        html += `<th></th></tr>`; // R vacía
+        html += `<th></th></tr>`; 
 
-        // Fila 2: Encabezados
-        html += `<tr class="header-main">
-                    <th>C<sub>b</sub></th>
-                    <th>Base</th>`;
+        html += `<tr class="header-main"><th>C<sub>b</sub></th><th>Base</th>`;
         for(let name of VarNames) html += `<th>${name}</th>`;
-        html += `<th>R</th></tr></thead>`;
+        html += `<th>R</th></tr></thead><tbody>`;
 
-        html += `<tbody>`;
-
-        // Filas de la Matriz
         for(let i=0; i<Matrix.length; i++) {
-            html += `<tr>`;
-            // Cb
-            html += `<td>${Cb[i]}</td>`; 
-            // Nombre Base
-            html += `<td><b>${VarNames[BasicVars[i]]}</b></td>`;
-            
-            // Datos
+            html += `<tr><td>${Cb[i]}</td><td><b>${VarNames[BasicVars[i]]}</b></td>`;
             for(let j=0; j<Matrix[i].length; j++) {
                 let val = Matrix[i][j];
                 let formatted = formatNumber(val);
-                
-                // Es el elemento pivote?
                 if(i === pivotRow && j === pivotCol) {
                     html += `<td><div class="pivot-element">${formatted}</div></td>`;
                 } else {
@@ -452,36 +422,26 @@
             html += `</tr>`;
         }
 
-        // Fila Z
-        html += `<tr class="row-z">
-                    <td colspan="2" style="text-align:right;">Z</td>`;
+        html += `<tr class="row-z"><td colspan="2" style="text-align:right;">Z</td>`;
         for(let z of Z_row) html += `<td>${formatNumber(z)}</td>`;
         
-        // Valor Z final en la esquina
-        // Si pivotRow es -1, significa que es la tabla optima, pintamos naranja
         let cellClass = (pivotRow === -1) ? 'final-z-cell' : '';
-        html += `<td class="${cellClass}">${formatNumber(Z_val)}</td>`;
-        html += `</tr></tbody></table></div>`;
+        html += `<td class="${cellClass}">${formatNumber(Z_val)}</td></tr></tbody></table></div>`;
 
         document.getElementById('results-area').insertAdjacentHTML('beforeend', html);
     }
 
-    // Caja verde final
     function renderFinalSolution(Z_val, BasicVars, Matrix, VarNames) {
-        // Encontrar valores de las variables
         let varsSolution = {};
-        // Inicializar todo en 0
         VarNames.forEach(name => varsSolution[name] = 0);
 
-        // Llenar con las básicas
         for(let i=0; i<BasicVars.length; i++) {
             let varIndex = BasicVars[i];
             let varName = VarNames[varIndex];
-            let val = Matrix[i][Matrix[0].length - 1]; // RHS
+            let val = Matrix[i][Matrix[0].length - 1]; 
             varsSolution[varName] = val;
         }
 
-        // Crear string de solución: X1=3, X2=12...
         let solStr = "";
         let keys = Object.keys(varsSolution);
         keys.forEach((key, idx) => {
@@ -498,14 +458,9 @@
         document.getElementById('results-area').insertAdjacentHTML('beforeend', html);
     }
 
-    // Formateo de números (evitar 0.333333333)
-    // Intenta mostrar enteros si está cerca, o 2 decimales
     function formatNumber(num) {
-        if (Math.abs(num - Math.round(num)) < 1e-6) {
-            return Math.round(num).toString();
-        }
-        return num.toFixed(2); // Usamos decimales como estándar general
-        // Si quisieras fracciones, aquí iría la lógica compleja de conversión
+        if (Math.abs(num - Math.round(num)) < 1e-6) return Math.round(num).toString();
+        return num.toFixed(2);
     }
 </script>
 

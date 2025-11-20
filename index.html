@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Álgebra Lineal</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { text-align: center; }
+        h1 { color: #333; margin-bottom: 40px; font-size: 2.5rem; }
+        
+        .menu-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        
+        .card {
+            background: white;
+            width: 250px;
+            height: 200px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-color: #007bff; }
+        
+        .card h2 { margin: 0; font-size: 1.5rem; color: #007bff; }
+        .card p { color: #666; margin-top: 10px; }
+        
+        .icon { font-size: 40px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora de Álgebra Lineal</h1>
+        
+        <div class="menu-grid">
+            <a href="grafico.html" class="card">
+                <div class="icon">📈</div>
+                <h2>Método Gráfico</h2>
+                <p>2 Variables</p>
+            </a>
+
+            <a href="simplex.html" class="card">
+                <div class="icon">🔢</div>
+                <h2>Método Simplex</h2>
+                <p>n Variables</p>
+            </a>
+        </div>
+        
+        <p style="margin-top: 50px; color: #999; font-size: 0.9rem;">Proyecto Universitario</p>
+    </div>
+
+</body>
+</html>
